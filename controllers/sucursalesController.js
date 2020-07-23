@@ -10,33 +10,10 @@ concesionarias.forEach(function(sucursal){
     arraySucursales.push(sucursal)
 })
 
-let arraySuc = []
-mostrarSucursales = concesionarias.forEach(function(dato){
-    arraySuc.push(dato.sucursal)
-})
-
-let arrayDir= []
-mostrarDireccion = concesionarias.forEach(function(dato){
-    arrayDir.push(dato.direccion)
-})
-
-let arrayTel = []
-
-mostrarTel = concesionarias.forEach(function(dato){
-    arrayTel.push(dato.telefono)
-})
-
-let conceVacio = []
-mostrarConcesionarias = concesionarias.forEach(function(dato){
-    conceVacio.push(dato.sucursal)
-})
-
-let contador = 0
 const sucursalesController = {
     index: (req, res)=>{
-        res.send(arraySuc.forEach(function(sucursal){
-            res.write('Sucursal: ' + arraySuc[contador] +  '\n\n' +'Direccion: '+  arrayDir[contador]+'\n\n' +'Telefono: ' + arrayTel[contador] + '\n\n' + '----------------------------------------------------------------------------\n\n')
-            contador++
+        res.send(arraySucursales.forEach(function(local){
+            res.write('Sucursal: ' + local.sucursal +  '\n\n' +'Direccion: '+  local.direccion+'\n\n' +'Telefono: ' + local.telefono + '\n\n' + '----------------------------------------------------------------------------\n\n')
        
         }))
         res.end()
