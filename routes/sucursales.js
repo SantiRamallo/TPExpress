@@ -7,6 +7,6 @@ const sucursalesController = require('../controllers/sucursalesController');
 
 
 router.get('/', sucursalesController.index)
-// router.get('/:idSucursal', sucursalesController.detalle)
+router.get('/:sucursal', sucursalesController.detalle)
 
 module.exports = router;

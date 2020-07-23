@@ -4,6 +4,12 @@ const fs = require('fs')
 
 const concesionarias = JSON.parse(fs.readFileSync(__dirname+'../../data/concesionarias.json', 'utf-8'));
 
+
+let arraySucursales = []
+concesionarias.forEach(function(sucursal){
+    arraySucursales.push(sucursal)
+})
+
 let arraySuc = []
 mostrarSucursales = concesionarias.forEach(function(dato){
     arraySuc.push(dato.sucursal)
@@ -34,16 +40,26 @@ const sucursalesController = {
        
         }))
         res.end()
-    }}
-//     detalle: function(req, res){
-//         let idSucursal = req.params.id;
-//         conceVacio.forEach(sucursal =>{
-//             if(idSucursal == mostrarSucursales.id){
-//                 res.send('Sucursal: '+ arraySuc)
-//             }
-//         })
-//     }
-// }
+    },
+    detalle: (req, res)=>{
+        let nombreSucursal = req.params.sucursal;
+        res.send(arraySucursales.forEach(local =>{
+            if(nombreSucursal.toUpperCase() == local.sucursal.toUpperCase()){
+                res.write('Sucursal: '+ local.sucursal +  '\n\n  Direccion: ' + local.direccion  + '\n\n') 
+                res.write('Cantidad de autos: ' + local.autos.length + '\n\n')
+                local.autos.forEach(auto =>{
+                    
+                    res.write('Marca: ' + auto.marca +'\n')
+                    res.write('Modelo: '+ auto.modelo +'\n')
+                    res.write('Año: ' + auto.anio + '\n\n')
+                })
+            }
+          
+        }))
+        
+        res.end()
+    }
+}
 
 
 module.exports = sucursalesController
