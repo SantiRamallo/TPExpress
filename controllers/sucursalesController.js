@@ -22,13 +22,14 @@ const sucursalesController = {
         let nombreSucursal = req.params.sucursal;
         res.send(arraySucursales.forEach(local =>{
             if(nombreSucursal.toUpperCase() == local.sucursal.toUpperCase()){
-                res.write('Sucursal: '+ local.sucursal +  '\n\n  Direccion: ' + local.direccion  + '\n\n') 
+                res.write('Sucursal: '+ local.sucursal +  '\n\nDireccion: ' + local.direccion  + '\n') 
+                res.write('Telefono: '+ local.telefono + '\n\n')
                 res.write('Cantidad de autos: ' + local.autos.length + '\n\n')
                 local.autos.forEach(auto =>{
                     
-                    res.write('Marca: ' + auto.marca +'\n')
-                    res.write('Modelo: '+ auto.modelo +'\n')
-                    res.write('Año: ' + auto.anio + '\n\n')
+                    res.write('Marca: ' + auto.marca.toUpperCase() +'\n')
+                    res.write('Modelo: '+ auto.modelo.toUpperCase() +'\n')
+                    res.write('Año: ' + auto.anio + '\n\n' + '===================================================================================\n\n')
                 })
             }
           
