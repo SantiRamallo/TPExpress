@@ -10,12 +10,20 @@ const concesionarias = JSON.parse(fs.readFileSync(__dirname+'../../data/concesio
 
 const autosController = {
     index: function(req, res){
+        res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' })
+        res.write('ESTOS SON NUESTROS AUTOS:  \n\n')
         concesionarias.forEach((concesionaria)=>{
             concesionaria.autos.forEach((auto)=>{
-                res.write('Estos son nuestros autos: ' + concesionaria.auto)
-                res.end()
+              
+                res.write('MARCA: ' + auto.marca + '\n')
+                res.write('MODELO: ' + auto.modelo + '\n')
+                res.write('AÑO: ' + auto.anio + '\n')
+                res.write('COLOR: ' + auto.color + '\n\n')
+                
+              
             })
         })
+        res.end()
     }
 }
 
