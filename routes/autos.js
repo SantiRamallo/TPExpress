@@ -3,7 +3,7 @@ const router = express.Router();
 const autosController = require('../controllers/autosController')
 
 
-// router.get('/', homeController.index)
+router.get('/', autosController.index)
 
 
 module.exports = router

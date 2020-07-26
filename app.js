@@ -11,7 +11,7 @@ let rutasSucursales = require('./routes/sucursales')
 
 
 app.use('/', rutasPrincipal)
-// app.use('/autos', rutasAutos)
+app.use('/autos', rutasAutos)
 app.use('/marcas', rutasMarcas)
 app.use('/sucursales', rutasSucursales)
 

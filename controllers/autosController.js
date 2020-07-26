@@ -8,6 +8,16 @@ const concesionarias = JSON.parse(fs.readFileSync(__dirname+'../../data/concesio
 
 
 
+const autosController = {
+    index: function(req, res){
+        concesionarias.forEach((concesionaria)=>{
+            concesionaria.autos.forEach((auto)=>{
+                res.write('Estos son nuestros autos: ' + concesionaria.auto)
+                res.end()
+            })
+        })
+    }
+}
 
 
 
@@ -22,5 +32,4 @@ const concesionarias = JSON.parse(fs.readFileSync(__dirname+'../../data/concesio
 
 
 
-
-// module.exports = autosController
+module.exports = autosController

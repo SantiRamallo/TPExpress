@@ -7,6 +7,6 @@ const marcasController = require('../controllers/marcasController');
 
 
 router.get('/', marcasController.index)
-//router.get('/:marca', sucursalesController.detalle)
+router.get('/:marca', marcasController.detalle)
 
 module.exports = router;
