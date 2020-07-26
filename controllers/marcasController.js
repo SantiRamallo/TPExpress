@@ -39,16 +39,18 @@ const marcasController = {
                 return auto.marca.toUpperCase() == marcaAuto.toUpperCase()
             })
             let contador = 1
+            res.write( 'ESTOS SON LOS AUTOS QUE TENEMOS DE LA MARCA: ' + marcaAuto.toUpperCase() + '\n\n')
             autosFiltrados.forEach((auto)=>{
                 res.write('AUTO NRO ' + contador + '\n')
-                res.write('MARCA: ' + auto.marca + '\n' )
-                res.write('MODELO: ' + auto.modelo + '\n')
+                // res.write('MARCA: ' + auto.marca.toUpperCase() + '\n' )
+                res.write('MODELO: ' + auto.modelo.toUpperCase() + '\n')
                 res.write('AÑO: ' + auto.anio + '\n\n')
+                res.write('================\n\n')
                 contador++
             })
             res.end()
         }else{
-        res.write('No se encontro la marca ' + marcaAuto + ' en nuestra base de datos.')
+        res.write('No se encontró la marca ' + marcaAuto.toUpperCase() + ' en nuestra base de datos.')
         res.end()
     }
     

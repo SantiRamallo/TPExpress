@@ -11,7 +11,7 @@ mostrarConcesionarias = concesionarias.forEach(function(dato){
 
 const homeController = {
     index: (req, res)=>{
-        res.send(('Bienvenidos a nuestra pagina!!\n\n Estas son nuestras sucursales: \n\n')+ conceVacio.join('****'))
+        res.send(('BIENVENIDOS A NUESTRA PAGINA!!\n\nEstas son nuestras sucursales: \n\n')+ conceVacio.join('\n\n==========================\n\n'))
     }
 }
 

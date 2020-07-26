@@ -22,10 +22,11 @@ const autosController = {
         concesionarias.forEach((concesionaria)=>{
             concesionaria.autos.forEach((auto)=>{
               
-                res.write('MARCA: ' + auto.marca + '\n')
-                res.write('MODELO: ' + auto.modelo + '\n')
+                res.write('MARCA: ' + auto.marca.toUpperCase() + '\n')
+                res.write('MODELO: ' + auto.modelo.toUpperCase() + '\n')
                 res.write('AÑO: ' + auto.anio + '\n')
-                res.write('COLOR: ' + auto.color + '\n\n')
+                res.write('COLOR: ' + auto.color.toUpperCase() + '\n\n')
+                res.write('=================\n\n')
                 
               
             })
