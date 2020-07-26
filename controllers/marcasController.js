@@ -7,36 +7,21 @@ let arrayMarcas = []
 concesionarias.forEach((concesionaria)=>{
     concesionaria.autos.forEach((auto)=>{
         arrayMarcas.push(auto.marca)
-
-
     })
 })
 
-
 let arrayAutos = []
-
 let marcasSinRepetir = []
 
 const marcasController = {
     index: function(req, res){
         res.write('Estas son nuestras marcas:\n\n')
-        // concesionarias.forEach((concesionaria)=>{
-        //     concesionaria.autos.forEach((auto)=>{
-        //         arrayMarcas.push(auto.marca)
-      
-        
-        //     })
-        
         arrayMarcas.forEach((marca) =>{
             if(marcasSinRepetir.indexOf(marca) == -1 ){
                 (marcasSinRepetir.push(marca))
                     res.write(marca.toUpperCase() + '\n')
-            
             }
-     
         })
-    // })
-    
     res.end()
    },
 
@@ -54,7 +39,6 @@ const marcasController = {
                 return auto.marca.toUpperCase() == marcaAuto.toUpperCase()
             })
             let contador = 1
-            // res.write('aa' + autosFiltrados)
             autosFiltrados.forEach((auto)=>{
                 res.write('AUTO NRO ' + contador + '\n')
                 res.write('MARCA: ' + auto.marca + '\n' )
@@ -67,20 +51,6 @@ const marcasController = {
         res.write('No se encontro la marca ' + marcaAuto + ' en nuestra base de datos.')
         res.end()
     }
-
-        
-
-
-
-
-
-
-
-        
-        // res.write('hola')
-        // res.end()
-    
-            
     
     }
 }
