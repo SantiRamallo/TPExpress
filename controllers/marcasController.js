@@ -22,8 +22,8 @@ const marcasController = {
                     res.write(marca.toUpperCase() + '\n')
             }
         })
-    res.end()
-   },
+        res.end()
+    },
 
     detalle: function(req, res) {
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' })

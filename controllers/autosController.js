@@ -59,6 +59,26 @@ const autosController = {
         res.end()
     }
     
+    },
+    dato: (req, res) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' })
+        let datoInput = req.params.dato
+        let marcaInput = req.params.marca
+        if(arrayMarcas.includes(marcaInput)){
+            if(isNaN(datoInput)){
+            
+                res.write('esto es un color')
+            }
+            else{
+                res.write('es un numero')
+            }
+            res.end()
+        }
+        else{
+            res.write('No se encontro la marca ' + marcaInput + ' en nuestra base de datos.')
+            res.end()
+        }
+        
     }
 }
 
